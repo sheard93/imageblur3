@@ -5,7 +5,7 @@ class Image
     @array = array
   end
 
-  def blur(distance = 1)
+  def blur!(distance = 1)
     distance.times do
       transform
     end
@@ -18,10 +18,9 @@ class Image
   private
 
   def transform
-  # length of one secondary array
+  
     width = array[0].length
 
-  # number of secondary arrays (rows)
     height = array.length
 
     ones_array = []
@@ -45,17 +44,17 @@ end
 
 
 image = Image.new([
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0,],
+  [0, 0, 0, 0, 0, 0, 0, 0,],
+  [0, 0, 0, 1, 0, 0, 0, 0,],
+  [0, 0, 0, 0, 0, 0, 0, 0,],
+  [0, 0, 0, 0, 0, 0, 0, 0,],
+  [0, 0, 0, 0, 0, 0, 0, 0,],
+  [0, 0, 0, 0, 0, 0, 0, 0,],
+  [0, 0, 0, 0, 0, 0, 0, 0,],
+  [0, 0, 0, 0, 0, 0, 1, 0,],
+  [0, 0, 0, 0, 0, 0, 0, 0,]
 ])
 
-image.blur(3)
+image.blur!(3)
 image.output_image
